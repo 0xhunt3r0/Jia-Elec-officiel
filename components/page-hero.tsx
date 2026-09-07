@@ -5,7 +5,7 @@ export function PageHero({
   kicker,
   title,
   description,
-  image = '/villa.webp',
+  image = '/hero/hero1.webp',
 }: {
   kicker: string
   title: string

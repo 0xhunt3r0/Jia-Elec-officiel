@@ -36,15 +36,7 @@ export function Hero() {
             fill
             priority={i === 0}
             sizes="100vw"
-            className="hidden object-cover sm:block"
-          />
-          <Image
-            src={item.imageMobile}
-            alt=""
-            fill
-            priority={i === 0}
-            sizes="100vw"
-            className="object-cover sm:hidden"
+            className="object-cover"
           />
         </div>
       ))}

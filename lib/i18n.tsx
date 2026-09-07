@@ -607,6 +607,11 @@ export type LocalizedServiceCopy = {
 }
 
 const serviceCopy: Record<string, Record<Lang, LocalizedServiceCopy>> = {
+  "Rénovation et mise aux normes d'une installation électrique": {
+    fr: { kicker: 'Rénovation', title: "Rénovation et mise aux normes d'une installation électrique", description: 'Des installations vétustes aux nouvelles normes : nous sécurisons, modernisons et remettons à niveau votre électricité pour la rendre fiable et conforme.', bodyTitle: 'Sécuriser et moderniser votre installation', body: "Nous identifions les risques (câbles fatigués, tableaux obsolètes, absence de protection différentielle) et remettons votre installation aux normes, avec un éclairage modernisé et des équipements remplacés proprement.", points: ['Mise aux normes électriques', "Sécurisation de l'installation", 'Rénovation du câblage', "Modernisation de l'éclairage", 'Remplacement des tableaux électriques', 'Modernisation des armoires électriques', 'Remise à niveau des installations existantes'], imageAlt: 'Tableau électrique moderne et étiqueté' },
+    en: { kicker: 'Renovation', title: 'Electrical renovation and code compliance', description: 'From outdated installations to current standards: we make your electrics safe, modern and reliable.', bodyTitle: 'Make your installation safe and modern', body: 'We identify the risks (tired cables, obsolete panels, missing residual-current protection) and bring your installation up to standard, with modernized lighting and cleanly replaced equipment.', points: ['Electrical code compliance', 'Making the installation safe', 'Wiring renovation', 'Lighting modernization', 'Electrical panel replacement', 'Electrical cabinet upgrades', 'Upgrading existing installations'], imageAlt: 'Modern, labeled electrical panel' },
+    ar: { kicker: 'تجديد', title: 'تجديد التركيبات الكهربائية ومطابقتها للمعايير', description: 'من التركيبات القديمة إلى المعايير الحديثة: نؤمّن كهرباءك ونحدّثها ونعيد رفع مستواها لتصبح موثوقة ومطابقة.', bodyTitle: 'تأمين وتحديث التركيبة الكهربائية', body: 'نحدد المخاطر (أسلاك متآكلة، لوحات قديمة، غياب الحماية التفاضلية) ونعيد تركيبتك إلى مطابقة المعايير، مع إضاءة محدّثة وتجهيزات مستبدلة بعناية.', points: ['مطابقة المعايير الكهربائية', 'تأمين التركيبة', 'تجديد الأسلاك', 'تحديث الإضاءة', 'استبدال اللوحات الكهربائية', 'تحديث الخزانات الكهربائية', 'رفع مستوى التركيبات القائمة'], imageAlt: 'لوحة كهربائية حديثة وموسومة' },
+  },
   'Installation électrique': {
     fr: { kicker: 'Services', title: 'Installation électrique', description: 'Des installations propres, sûres et pensées pour durer.', bodyTitle: 'Une installation fiable dès le premier jour', body: 'Nous concevons et réalisons des installations électriques adaptées à votre logement, votre commerce ou votre projet neuf.', points: ['Étude et dimensionnement', 'Câblage et tableaux électriques', 'Éclairage intérieur et extérieur', 'Contrôle et mise en service'], imageAlt: 'Installation électrique professionnelle' },
     en: { kicker: 'Services', title: 'Electrical installation', description: 'Clean, safe installations designed to last.', bodyTitle: 'A reliable installation from day one', body: 'We design and deliver electrical systems tailored to your home, business, or new-build project.', points: ['Planning and sizing', 'Wiring and electrical panels', 'Interior and exterior lighting', 'Testing and commissioning'], imageAlt: 'Professional electrical installation' },
@@ -627,9 +632,14 @@ const serviceCopy: Record<string, Record<Lang, LocalizedServiceCopy>> = {
 
 export function getServiceCopy(title: string, lang: Lang): LocalizedServiceCopy | null {
   const normalized = title.toLowerCase().replace(/[’']/g, "'")
-  const key = Object.keys(serviceCopy).find((candidate) => {
+  const keys = Object.keys(serviceCopy)
+  // Exact match first — prevents e.g. the renovation page title from matching
+  // the 'Installation électrique' entry just because it contains that substring.
+  const exact = keys.find((candidate) => candidate.toLowerCase().replace(/[’']/g, "'") === normalized)
+  if (exact) return serviceCopy[exact][lang]
+  const key = keys.find((candidate) => {
     const candidateNormalized = candidate.toLowerCase().replace(/[’']/g, "'")
-    return normalized === candidateNormalized || normalized.includes(candidateNormalized) || candidateNormalized.includes(normalized)
+    return normalized.includes(candidateNormalized) || candidateNormalized.includes(normalized)
   })
   return key ? serviceCopy[key][lang] : null
 }

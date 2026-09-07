@@ -191,7 +191,77 @@
       "duration_seconds": 4508,
       "date": "2026-09-07",
       "synced_online": false
+    },
+    {
+      "id": "1788780806254-zu3c",
+      "project": "Jia Elec",
+      "display_name": "Jia Elec",
+      "start_time": "2026-09-07T11:06:55.759Z",
+      "end_time": "2026-09-07T11:28:12.815Z",
+      "duration_seconds": 1277,
+      "date": "2026-09-07",
+      "synced_online": false
+    },
+    {
+      "id": "1788786698803-9cmi",
+      "project": "Jia Elec",
+      "display_name": "Jia Elec",
+      "start_time": "2026-09-07T11:52:36.722Z",
+      "end_time": "2026-09-07T13:06:32.888Z",
+      "duration_seconds": 4436,
+      "date": "2026-09-07",
+      "synced_online": false
+    },
+    {
+      "id": "1788788317099-szm2",
+      "project": "Jia Elec",
+      "display_name": "Jia Elec",
+      "start_time": "2026-09-07T13:24:12.958Z",
+      "end_time": "2026-09-07T13:33:27.848Z",
+      "duration_seconds": 554,
+      "date": "2026-09-07",
+      "synced_online": false
+    },
+    {
+      "id": "1788789480502-4yrn",
+      "project": "Jia Elec",
+      "display_name": "Jia Elec",
+      "start_time": "2026-09-07T13:48:34.062Z",
+      "end_time": "2026-09-07T13:52:57.113Z",
+      "duration_seconds": 263,
+      "date": "2026-09-07",
+      "synced_online": false
+    },
+    {
+      "id": "1788791868336-sioa",
+      "project": "Jia Elec",
+      "display_name": "Jia Elec",
+      "start_time": "2026-09-07T14:15:38.974Z",
+      "end_time": "2026-09-07T14:32:46.303Z",
+      "duration_seconds": 1027,
+      "date": "2026-09-07",
+      "synced_online": false
+    },
+    {
+      "id": "1788806802090-9lv7",
+      "project": "Jia Elec",
+      "display_name": "Jia Elec",
+      "start_time": "2026-09-07T18:39:38.912Z",
+      "end_time": "2026-09-07T18:41:28.501Z",
+      "duration_seconds": 109,
+      "date": "2026-09-08",
+      "synced_online": false
+    },
+    {
+      "id": "1788807481001-locz",
+      "project": "Jia Elec",
+      "display_name": "Jia Elec",
+      "start_time": "2026-09-07T18:48:15.034Z",
+      "end_time": "2026-09-07T18:52:46.829Z",
+      "duration_seconds": 271,
+      "date": "2026-09-08",
+      "synced_online": false
     }
   ],
-  "last_updated": "2026-09-07T10:47:49.296Z"
+  "last_updated": "2026-09-07T18:58:01.001Z"
 }

@@ -287,7 +287,7 @@ export const AREAS = [
   { name: "Hivernage", blurb: "Hôtels, villas et travaux d'éclairage en soirée.", image: "/images/lighting.jpg", lat: 31.6295, lng: -8.0197 },
   { name: "Médina", blurb: "Riads, accès étroits et installations patrimoniales soignées.", image: "/images/install.jpg", lat: 31.6295, lng: -7.9891 },
   { name: "Palmeraie", blurb: "Grandes villas, piscines et éclairage de jardin.", image: "/images/outdoor.jpg", lat: 31.667, lng: -7.937 },
-  { name: "Targa", blurb: "Maisons familiales et nouveaux quartiers résidentiels.", image: "/images/hero.jpg", lat: 31.644, lng: -8.036 },
+  { name: "Targa", blurb: "Maisons familiales et nouveaux quartiers résidentiels.", image: "/hero/hero2.webp", lat: 31.644, lng: -8.036 },
   { name: "Agdal", blurb: "Maisons et petites unités commerciales.", image: "/images/tools.jpg", lat: 31.618, lng: -7.995 },
   { name: "Massira", blurb: "Appartements et dépannages courants.", image: "/images/switchboard.jpg", lat: 31.654, lng: -8.023 },
   { name: "Daoudiate", blurb: "Maisons, cafés et commerces de proximité.", image: "/images/security.jpg", lat: 31.665, lng: -8.008 },
@@ -448,13 +448,13 @@ export const HERO_SLIDES = [
   {
     eyebrow: "Jia Elec",
     title: "Votre partenaire de confiance pour des solutions électriques sûres et fiables",
-    image: "/villa.webp",
-    imageMobile: "/hero/hero-mobile.webp",
+    image: "/hero/hero1.webp",
+    imageMobile: "/hero/hero1-mobile.webp",
   },
   {
     eyebrow: "Jia Elec",
     title: "Des services sûrs, fiables et efficaces pour votre maison et votre entreprise",
-    image: "/images/hero.jpg",
-    imageMobile: "/hero/hero-mobile-alt.webp",
+    image: "/hero/hero2.webp",
+    imageMobile: "/hero/hero2-mobile.webp",
   },
 ];

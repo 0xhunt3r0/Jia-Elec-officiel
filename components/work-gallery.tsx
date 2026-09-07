@@ -1,19 +1,19 @@
 'use client'
 
-import { Gallery, GalleryGrid, GalleryImage } from '@/components/ui/shared-element-gallery'
+import { Gallery, GalleryImage } from '@/components/ui/shared-element-gallery'
 import { Section, SectionTitle } from '@/components/section'
 
-const PHOTOS = [
-  { id: '1', src: '/gallery/gallery-1.webp' },
-  { id: '2', src: '/gallery/gallery-2.webp' },
-  { id: '3', src: '/gallery/gallery-3.webp' },
-  { id: '4', src: '/gallery/gallery-4.webp' },
-  { id: '5', src: '/gallery/gallery-5.webp' },
-  { id: '6', src: '/gallery/gallery-6.webp' },
-  { id: '7', src: '/gallery/gallery-7.webp' },
-  { id: '8', src: '/gallery/gallery-8.webp' },
-  { id: '9', src: '/gallery/gallery-9.webp' },
-  { id: '10', src: '/gallery/gallery-10.webp' },
+type Photo = { id: string; src: string; alt: string }
+
+const SECTIONS: { title: string; photos: Photo[] }[] = [
+  {
+    title: 'Éclairage & décoration',
+    photos: [{ id: 'e1', src: '/gallery/gallery-1.webp', alt: "Projet d'éclairage et décoration" }],
+  },
+  {
+    title: 'Armoires électriques & locaux techniques',
+    photos: [{ id: 'e2', src: '/gallery/e-gallery-1.webp', alt: 'Armoire électrique et local technique' }],
+  },
 ]
 
 export function WorkGallery() {
@@ -23,16 +23,27 @@ export function WorkGallery() {
         Nos projets électriques récents
       </SectionTitle>
       <Gallery>
-        <GalleryGrid className="mt-12">
-          {PHOTOS.map((photo) => (
-            <GalleryImage
-              key={photo.id}
-              id={photo.id}
-              src={photo.src}
-              alt={`Electrical project ${photo.id}`}
-            />
+        <div className="mt-12 flex flex-col gap-12">
+          {SECTIONS.map((section) => (
+            <div key={section.title}>
+              <h3 className="mb-5 flex items-center gap-4 text-xl font-semibold tracking-wide text-foreground">
+                {section.title}
+                <span className="h-px flex-1 bg-border" aria-hidden="true" />
+              </h3>
+              <div className="flex gap-4 overflow-x-auto pb-2 [scrollbar-width:thin]">
+                {section.photos.map((photo) => (
+                  <GalleryImage
+                    key={photo.id}
+                    id={photo.id}
+                    src={photo.src}
+                    alt={photo.alt}
+                    className="w-72 shrink-0 snap-start [&_img]:aspect-4/3"
+                  />
+                ))}
+              </div>
+            </div>
           ))}
-        </GalleryGrid>
+        </div>
       </Gallery>
     </Section>
   )

@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: `${SITE.name} · Électricien agréé à ${SITE.city}`,
     description: SITE.description,
-    images: ['/villa.webp'],
+    images: ['/hero/hero1.webp'],
   },
 }
 
@@ -38,7 +38,12 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="fr" dir="ltr" className={`${inter.className} bg-background antialiased`}>
+    <html
+      lang="fr"
+      dir="ltr"
+      suppressHydrationWarning
+      className={`${inter.className} bg-background antialiased`}
+    >
       <body>
         <Script id="theme-init" strategy="beforeInteractive">
           {`(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.classList.add('light')}}catch(e){}})()`}
