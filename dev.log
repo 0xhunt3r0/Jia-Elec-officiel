@@ -1,0 +1,23 @@
+
+> my-project@0.1.0 dev D:\project\jia
+> next dev
+
+⚠ Port 3000 is in use by process 2704, using available port 3001 instead.
+▲ Next.js 16.3.3 (Turbopack)
+- Local:         http://localhost:3001
+- Network:       http://172.21.240.1:3001
+✓ Ready in 721ms
+✓ Running next.config.mjs took 34ms
+⨯ Another next dev server is already running.
+
+- Local:        http://localhost:3000
+- PID:          2704
+- Dir:          D:\project\jia
+- Log:          .next\dev\logs\next-development.log
+
+You can access the existing server at http://localhost:3000,
+or run taskkill /PID 2704 /F to stop it and start a new one.
+[?25h
+ ELIFECYCLE  Command failed with exit code 1.
+
+D:\project\jia>

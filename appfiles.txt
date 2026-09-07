@@ -1,0 +1,14 @@
+d:\project\jia\app\globals.css
+d:\project\jia\app\layout.tsx
+d:\project\jia\app\not-found.tsx
+d:\project\jia\app\page.tsx
+d:\project\jia\app\about\page.tsx
+d:\project\jia\app\actions\quote.ts
+d:\project\jia\app\areas\page.tsx
+d:\project\jia\app\contact\page.tsx
+d:\project\jia\app\devis\page.tsx
+d:\project\jia\app\installation\page.tsx
+d:\project\jia\app\maintenance\page.tsx
+d:\project\jia\app\services\page.tsx
+d:\project\jia\app\switchboard\page.tsx
+d:\project\jia\app\work\page.tsx

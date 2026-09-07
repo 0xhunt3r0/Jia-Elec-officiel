@@ -1,0 +1,38 @@
+
+> my-project@0.1.0 build D:\project\jia
+> next build
+
+▲ Next.js 16.3.3 (Turbopack)
+✓ Running next.config.mjs took 35ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 807ms
+  Skipping validation of types
+  Finished TypeScript config validation in 27ms ...
+  Collecting page data using 7 workers ...
+  Generating static pages using 7 workers (0/14) ...
+⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+  Generating static pages using 7 workers (3/14) 
+  Generating static pages using 7 workers (6/14) 
+  Generating static pages using 7 workers (10/14) 
+✓ Generating static pages using 7 workers (14/14) in 772ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /areas
+├ ○ /armoires
+├ ○ /contact
+├ ○ /depannage
+├ ○ /devis
+├ ○ /installation
+├ ○ /maintenance
+├ ○ /renovation
+├ ○ /services
+├ ○ /switchboard
+└ ○ /work
+
+
+○  (Static)  prerendered as static content
+

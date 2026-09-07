@@ -1,0 +1,177 @@
+{
+  "project": "new",
+  "display_name": "jia",
+  "sessions": [
+    {
+      "id": "1788563120027-l9qm",
+      "project": "new",
+      "display_name": "new",
+      "start_time": "2026-09-04T22:56:01.744Z",
+      "end_time": "2026-09-04T23:00:13.261Z",
+      "duration_seconds": 251,
+      "date": "2026-09-05",
+      "synced_online": false
+    },
+    {
+      "id": "1788567010598-0d80",
+      "project": "new",
+      "display_name": "new",
+      "start_time": "2026-09-04T23:06:04.719Z",
+      "end_time": "2026-09-05T00:10:10.222Z",
+      "duration_seconds": 3845,
+      "date": "2026-09-05",
+      "synced_online": false
+    },
+    {
+      "id": "1788580795115-6mbg",
+      "project": "jia",
+      "display_name": "jia",
+      "start_time": "2026-09-05T02:31:19.229Z",
+      "end_time": "2026-09-05T02:37:04.820Z",
+      "duration_seconds": 345,
+      "date": "2026-09-05",
+      "synced_online": false
+    },
+    {
+      "id": "1788582018140-a36t",
+      "project": "jia",
+      "display_name": "jia",
+      "start_time": "2026-09-05T04:01:40.545Z",
+      "end_time": "2026-09-05T04:15:10.217Z",
+      "duration_seconds": 809,
+      "date": "2026-09-05",
+      "synced_online": false
+    },
+    {
+      "id": "1788589548198-ip46",
+      "project": "jia",
+      "display_name": "jia",
+      "start_time": "2026-09-05T06:08:39.879Z",
+      "end_time": "2026-09-05T06:20:43.192Z",
+      "duration_seconds": 723,
+      "date": "2026-09-05",
+      "synced_online": false
+    },
+    {
+      "id": "1788592013140-3jpa",
+      "project": "jia",
+      "display_name": "jia",
+      "start_time": "2026-09-05T06:26:01.434Z",
+      "end_time": "2026-09-05T07:01:44.304Z",
+      "duration_seconds": 2142,
+      "date": "2026-09-05",
+      "synced_online": false
+    },
+    {
+      "id": "1788594929869-nyow",
+      "project": "jia",
+      "display_name": "jia",
+      "start_time": "2026-09-05T07:29:05.901Z",
+      "end_time": "2026-09-05T07:50:26.911Z",
+      "duration_seconds": 1281,
+      "date": "2026-09-05",
+      "synced_online": false
+    },
+    {
+      "id": "1788596063601-lc4c",
+      "project": "jia",
+      "display_name": "jia",
+      "start_time": "2026-09-05T08:07:13.369Z",
+      "end_time": "2026-09-05T08:09:11.370Z",
+      "duration_seconds": 118,
+      "date": "2026-09-05",
+      "synced_online": false
+    },
+    {
+      "id": "1788597321947-iufr",
+      "project": "jia",
+      "display_name": "jia",
+      "start_time": "2026-09-05T08:17:45.563Z",
+      "end_time": "2026-09-05T08:30:07.927Z",
+      "duration_seconds": 742,
+      "date": "2026-09-05",
+      "synced_online": false
+    },
+    {
+      "id": "1788598063542-w5qt",
+      "project": "jia",
+      "display_name": "jia",
+      "start_time": "2026-09-05T08:38:05.655Z",
+      "end_time": "2026-09-05T08:42:31.971Z",
+      "duration_seconds": 266,
+      "date": "2026-09-05",
+      "synced_online": false
+    },
+    {
+      "id": "1788627042100-r2yq",
+      "project": "jia",
+      "display_name": "jia",
+      "start_time": "2026-09-05T13:50:01.673Z",
+      "end_time": "2026-09-05T16:45:38.482Z",
+      "duration_seconds": 10536,
+      "date": "2026-09-05",
+      "synced_online": false
+    },
+    {
+      "id": "1788629405248-f75x",
+      "project": "jia",
+      "display_name": "jia",
+      "start_time": "2026-09-05T17:13:44.852Z",
+      "end_time": "2026-09-05T17:30:05.206Z",
+      "duration_seconds": 980,
+      "date": "2026-09-05",
+      "synced_online": false
+    },
+    {
+      "id": "1788664874557-hb5x",
+      "project": "jia",
+      "display_name": "jia",
+      "start_time": "2026-09-06T02:49:40.764Z",
+      "end_time": "2026-09-06T03:21:13.509Z",
+      "duration_seconds": 1892,
+      "date": "2026-09-06",
+      "synced_online": false
+    },
+    {
+      "id": "1788722390640-6eht",
+      "project": "jia",
+      "display_name": "jia",
+      "start_time": "2026-09-06T18:33:17.484Z",
+      "end_time": "2026-09-06T19:14:35.911Z",
+      "duration_seconds": 2478,
+      "date": "2026-09-07",
+      "synced_online": false
+    },
+    {
+      "id": "1788723252663-ualg",
+      "project": "jia",
+      "display_name": "jia",
+      "start_time": "2026-09-06T19:23:08.535Z",
+      "end_time": "2026-09-06T19:28:59.836Z",
+      "duration_seconds": 351,
+      "date": "2026-09-07",
+      "synced_online": false
+    },
+    {
+      "id": "1788724311021-ss1w",
+      "project": "jia",
+      "display_name": "jia",
+      "start_time": "2026-09-06T19:45:23.076Z",
+      "end_time": "2026-09-06T19:46:38.634Z",
+      "duration_seconds": 75,
+      "date": "2026-09-07",
+      "synced_online": false
+    },
+    {
+      "id": "1788728815760-vv8i",
+      "project": "jia",
+      "display_name": "jia",
+      "start_time": "2026-09-06T20:20:47.048Z",
+      "end_time": "2026-09-06T21:01:43.288Z",
+      "duration_seconds": 2456,
+      "date": "2026-09-07",
+      "synced_online": false
+    }
+  ],
+  "last_updated": "2026-09-06T21:06:55.761Z"
+}
