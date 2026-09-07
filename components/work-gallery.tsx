@@ -1,20 +1,13 @@
 'use client'
 
-import { Gallery, GalleryImage } from '@/components/ui/shared-element-gallery'
+import { Gallery, GalleryGrid, GalleryImage } from '@/components/ui/shared-element-gallery'
 import { Section, SectionTitle } from '@/components/section'
 
-type Photo = { id: string; src: string; alt: string }
-
-const SECTIONS: { title: string; photos: Photo[] }[] = [
-  {
-    title: 'Éclairage & décoration',
-    photos: [{ id: 'e1', src: '/gallery/gallery-1.webp', alt: "Projet d'éclairage et décoration" }],
-  },
-  {
-    title: 'Armoires électriques & locaux techniques',
-    photos: [{ id: 'e2', src: '/gallery/e-gallery-1.webp', alt: 'Armoire électrique et local technique' }],
-  },
-]
+// Flat album of project photos — gallery-1.webp … gallery-30.webp
+const PHOTOS = Array.from({ length: 30 }, (_, i) => ({
+  id: String(i + 1),
+  src: `/gallery/gallery-${i + 1}.webp`,
+})).sort((a, b) => Number(a.id) - Number(b.id))
 
 export function WorkGallery() {
   return (
@@ -23,27 +16,16 @@ export function WorkGallery() {
         Nos projets électriques récents
       </SectionTitle>
       <Gallery>
-        <div className="mt-12 flex flex-col gap-12">
-          {SECTIONS.map((section) => (
-            <div key={section.title}>
-              <h3 className="mb-5 flex items-center gap-4 text-xl font-semibold tracking-wide text-foreground">
-                {section.title}
-                <span className="h-px flex-1 bg-border" aria-hidden="true" />
-              </h3>
-              <div className="flex gap-4 overflow-x-auto pb-2 [scrollbar-width:thin]">
-                {section.photos.map((photo) => (
-                  <GalleryImage
-                    key={photo.id}
-                    id={photo.id}
-                    src={photo.src}
-                    alt={photo.alt}
-                    className="w-72 shrink-0 snap-start [&_img]:aspect-4/3"
-                  />
-                ))}
-              </div>
-            </div>
+        <GalleryGrid className="mt-12">
+          {PHOTOS.map((photo) => (
+            <GalleryImage
+              key={photo.id}
+              id={photo.id}
+              src={photo.src}
+              alt={`Projet électrique ${photo.id}`}
+            />
           ))}
-        </div>
+        </GalleryGrid>
       </Gallery>
     </Section>
   )

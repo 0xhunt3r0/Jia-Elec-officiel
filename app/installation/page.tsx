@@ -25,12 +25,11 @@ export default function InstallationPage() {
       kicker="Nouvelle installation"
       title="Installation électrique complète pour constructions neuves"
       description={`De la conception du tableau au dernier interrupteur, ${SITE.name} équipe les constructions neuves avec des installations propres, sûres et conformes aux normes.`}
-      heroImage="/images/install.jpg"
+      heroImage="/images/installation1.jpg"
       bodyTitle="Ce que nous installons"
       body="Nous prenons en charge l'installation électrique complète d'une construction neuve : circuit d'alimentation, tableau, câblage, éclairage, prises et locaux techniques liés à la piscine et au puits."
       points={POINTS}
-      image="/images/lighting.jpg"
-      imageAlt={`Éclairage intérieur dans un riad de ${SITE.city}`}
+      image="/images/installation2.jpg"
     />
   )
 }

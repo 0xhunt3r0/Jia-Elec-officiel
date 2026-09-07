@@ -6,6 +6,7 @@ import { Check } from 'lucide-react'
 import { PageHero } from '@/components/page-hero'
 import { Section, SectionTitle } from '@/components/section'
 import { getServiceCopy, useLanguage } from '@/lib/i18n'
+import { SITE } from '@/lib/site'
 
 export function ServiceDetail({
   kicker,
@@ -34,7 +35,7 @@ export function ServiceDetail({
   const localized = getServiceCopy(title, lang)
   const copy = localized ?? { kicker, title, description, bodyTitle, body: typeof body === 'string' ? body : '', points: [...points], imageAlt }
   const picture = (
-    <Image src={image} alt={copy.imageAlt} width={1200} height={900} className="aspect-4/3 w-full rounded-md object-cover" />
+    <Image src={image} alt={copy.imageAlt ?? `${copy.title} — ${SITE.name}`} width={1200} height={900} className="aspect-4/3 w-full rounded-md object-cover" />
   )
   return (
     <>

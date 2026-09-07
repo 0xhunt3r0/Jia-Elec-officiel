@@ -23,12 +23,11 @@ export default function RenovationPage() {
       kicker="Rénovation"
       title="Rénovation et mise aux normes d'une installation électrique"
       description={`Des installations vétustes aux nouvelles normes : ${SITE.name} sécurise, modernise et remet à niveau votre électricité pour la rendre fiable et conforme.`}
-      heroImage="/images/lighting.jpg"
+      heroImage="/images/renovation1.jpg"
       bodyTitle="Sécuriser et moderniser votre installation"
       body="Nous identifions les risques (câbles fatigués, tableaux obsolètes, absence de protection différentielle) et remettons votre installation aux normes, avec un éclairage modernisé et des équipements remplacés proprement."
       points={POINTS}
-      image="/images/switchboard.jpg"
-      imageAlt="Tableau électrique moderne et étiqueté"
+      image="/images/renovation2.jpg"
     />
   )
 }

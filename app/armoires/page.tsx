@@ -24,12 +24,11 @@ export default function ArmoiresPage() {
       kicker="Armoires électriques"
       title="Câblage des armoires électriques et locaux techniques"
       description={`Des armoires proprement câblées et des locaux techniques opérationnels pour les piscines et les puits — par ${SITE.name} à ${SITE.city}.`}
-      heroImage="/images/switchboard.jpg"
+      heroImage="/images/armoires1.jpg"
       bodyTitle="Armoires, pompes et locaux techniques"
       body="Nous installons et câblons vos armoires électriques, raccordons les pompes de piscine et de puits, aménageons les locaux techniques et mettons le tout en service et sous contrôle."
       points={POINTS}
-      image="/images/outdoor.jpg"
-      imageAlt="Piscine avec équipement technique électrique"
+      image="/images/armoires2.jpg"
     />
   )
 }

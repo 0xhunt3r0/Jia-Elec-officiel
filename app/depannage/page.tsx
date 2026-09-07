@@ -24,12 +24,11 @@ export default function DepannagePage() {
       kicker="Dépannage"
       title="Dépannage électrique d'urgence"
       description={`Coupures, pannes, disjoncteurs qui sautent, odeurs de brûlé : ${SITE.name} intervient rapidement pour villas, riads et locaux professionnels à ${SITE.city}.`}
-      heroImage="/images/tools.jpg"
+      heroImage="/images/depannage1.jpg"
       bodyTitle="Réparation rapide et durable"
       body="Nous trouvons la panne, la réparons sans remplacer inutilement, remplaçons les équipements défectueux et assurons la maintenance et l'entretien de vos installations électriques."
       points={POINTS}
-      image="/images/tools.jpg"
-      imageAlt="Électricien en intervention de dépannage"
+      image="/images/depannage2.jpg"
     />
   )
 }
