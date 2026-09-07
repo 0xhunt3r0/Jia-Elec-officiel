@@ -72,10 +72,22 @@ export function SiteFooter() {
                 </li>
               </ul>
               <div className="mt-6 flex gap-4">
-                <a href={SITE.facebook} className="opacity-80 hover:opacity-100" aria-label="Facebook">
+                <a
+                  href={SITE.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="opacity-80 hover:opacity-100"
+                  aria-label="Facebook"
+                >
                   <Image src="/logos/facebook.svg" alt="" width={16} height={16} className="h-4 w-auto" />
                 </a>
-                <a href={SITE.instagram} className="opacity-80 hover:opacity-100" aria-label="Instagram">
+                <a
+                  href={SITE.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="opacity-80 hover:opacity-100"
+                  aria-label="Instagram"
+                >
                   <Image src="/logos/instagram.svg" alt="" width={16} height={16} className="h-4 w-auto" />
                 </a>
               </div>

@@ -31,19 +31,41 @@ export function MobileCta() {
           {t.mobileCta.quote}
         </a>
       </div>
-      <a
-        href={SITE.whatsapp}
-        className="fixed right-5 bottom-20 z-20 inline-flex size-12 items-center justify-center rounded-full bg-background/90 p-1 shadow-md transition-transform duration-150 ease-out hover:scale-105 lg:right-6 lg:bottom-6"
-        aria-label={interp(t.mobileCta.whatsappAria, { name: SITE.name })}
-      >
-        <Image
-          src="/logos/whatsapp.png"
-          alt="WhatsApp"
-          width={48}
-          height={48}
-          className="size-11 object-contain"
-        />
-      </a>
+      <div className="fixed right-5 bottom-20 z-20 flex flex-col items-center gap-2 lg:bottom-6 lg:right-6">
+        <a
+          href={SITE.instagram}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex size-12 items-center justify-center rounded-full bg-background/90 p-1 shadow-md transition-transform duration-150 ease-out hover:scale-105"
+          aria-label="Instagram"
+        >
+          <Image src="/logos/instagram.png" alt="Instagram" width={48} height={48} className="size-11 object-contain" />
+        </a>
+        <a
+          href={SITE.facebook}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex size-12 items-center justify-center rounded-full bg-background/90 p-1 shadow-md transition-transform duration-150 ease-out hover:scale-105"
+          aria-label="Facebook"
+        >
+          <Image src="/logos/facebook.png" alt="Facebook" width={48} height={48} className="size-11 object-contain" />
+        </a>
+        <a
+          href={SITE.whatsapp}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex size-12 items-center justify-center rounded-full bg-background/90 p-1 shadow-md transition-transform duration-150 ease-out hover:scale-105"
+          aria-label={interp(t.mobileCta.whatsappAria, { name: SITE.name })}
+        >
+          <Image
+            src="/logos/whatsapp.png"
+            alt="WhatsApp"
+            width={48}
+            height={48}
+            className="size-11 object-contain"
+          />
+        </a>
+      </div>
     </>
   )
 }
