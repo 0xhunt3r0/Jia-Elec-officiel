@@ -4,7 +4,7 @@
 
 ▲ Next.js 16.3.3 (Turbopack)
 - Environments: .env.local
-✓ Running next.config.mjs took 39ms
+✓ Running next.config.mjs took 40ms
 - Experiments (use with caution):
   · serverActions
 
@@ -15,16 +15,15 @@
 
   Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
   Creating an optimized production build ...
-✓ Compiled successfully in 737ms
+✓ Compiled successfully in 1555ms
   Skipping validation of types
-  Finished TypeScript config validation in 28ms ...
+  Finished TypeScript config validation in 37ms ...
   Collecting page data using 7 workers ...
   Generating static pages using 7 workers (0/14) ...
-⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
   Generating static pages using 7 workers (3/14) 
   Generating static pages using 7 workers (6/14) 
   Generating static pages using 7 workers (10/14) 
-✓ Generating static pages using 7 workers (14/14) in 656ms
+✓ Generating static pages using 7 workers (14/14) in 690ms
   Finalizing page optimization ...
 
 Route (app)
@@ -47,4 +46,4 @@ Route (app)
 
 ○  (Static)  prerendered as static content
 
-BUILD_OK 
+BUILD_OK  

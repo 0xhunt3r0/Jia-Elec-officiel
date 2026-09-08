@@ -24,10 +24,10 @@ export function middleware(request: NextRequest) {
     return response
   }
 
-  const savedLocale = request.cookies.get('jia-elec-lang')?.value
-  const locale = locales.includes(savedLocale as (typeof locales)[number]) ? savedLocale : defaultLocale
+  // Default language is always French: any path without a locale prefix
+  // redirects to /fr — regardless of any previously saved language cookie.
   const url = request.nextUrl.clone()
-  url.pathname = `/${locale}${pathname === '/' ? '' : pathname}`
+  url.pathname = `/fr${pathname === '/' ? '' : pathname}`
   return NextResponse.redirect(url)
 }
 

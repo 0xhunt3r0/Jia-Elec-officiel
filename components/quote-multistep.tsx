@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useActionState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
@@ -80,6 +80,13 @@ export function QuoteMultistep() {
   const PAYMENT_METHODS: { label: string; description: string }[] = q.paymentMethods
   const [state, action, pending] = useActionState(submitQuote, initial)
   const [step, setStep] = useState(0)
+  // Render the interactive form only after mount. The server prerender and the
+  // client's first paint then match exactly (no hydration mismatch from the
+  // language cookie or Fast Refresh-preserved form state).
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const [profile, setProfile] = useState('')
   const [intervention, setIntervention] = useState('')
@@ -121,6 +128,26 @@ export function QuoteMultistep() {
 
   const next = () => setStep((s) => Math.min(s + 1, STEPS.length - 1))
   const prev = () => setStep((s) => Math.max(s - 1, 0))
+
+  if (!mounted) {
+    return (
+      <div className="rounded-md border border-border bg-elevated p-6 sm:p-8" aria-busy="true" aria-label="Chargement du formulaire">
+        <div className="mb-8 flex justify-between">
+          {[0, 1, 2, 3, 4].map((i) => (
+            <div key={i} className="flex flex-col items-center gap-2">
+              <div className="size-6 animate-pulse rounded-full bg-muted" />
+              <div className="h-2 w-14 animate-pulse rounded bg-muted" />
+            </div>
+          ))}
+        </div>
+        <div className="space-y-4">
+          <div className="h-24 w-full animate-pulse rounded bg-muted" />
+          <div className="h-12 w-full animate-pulse rounded bg-muted" />
+          <div className="h-12 w-full animate-pulse rounded bg-muted" />
+        </div>
+      </div>
+    )
+  }
 
   if (state.status === 'sent') {
     return (
@@ -517,13 +544,13 @@ const renderStep = () => {
         </p>
       ) : null}
 
-      <div className="mt-6 flex items-center justify-between gap-3">
-        <Button type="button" variant="outline" onClick={prev} disabled={step === 0} className="flex items-center gap-1">
+      <div className="mt-6 flex flex-col-reverse gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <Button type="button" variant="outline" onClick={prev} disabled={step === 0} className="flex w-full items-center justify-center gap-1 sm:w-auto">
           <ChevronLeft className="size-4" aria-hidden="true" /> {q.back}
         </Button>
         {step === STEPS.length - 1 ? (
-          <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-            <Button type="submit" disabled={!isStepValid() || pending} className="flex items-center gap-1.5">
+          <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} className="w-full sm:w-auto">
+            <Button type="submit" disabled={!isStepValid() || pending} className="flex w-full items-center justify-center gap-1.5 sm:w-auto">
               {pending ? (
                 <>
                   <Loader2 className="size-4 animate-spin" aria-hidden="true" /> {q.sending}
@@ -536,8 +563,8 @@ const renderStep = () => {
             </Button>
           </motion.div>
         ) : (
-          <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-            <Button type="button" onClick={next} disabled={!isStepValid()} className="flex items-center gap-1.5">
+          <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} className="w-full sm:w-auto">
+            <Button type="button" onClick={next} disabled={!isStepValid()} className="flex w-full items-center justify-center gap-1.5 sm:w-auto">
               {q.next} <ChevronRight className="size-4" aria-hidden="true" />
             </Button>
           </motion.div>
