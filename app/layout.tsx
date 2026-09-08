@@ -14,6 +14,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://jia-elec-officiel-ten.vercel.app'),
   title: `${SITE.name} · Électricien agréé à ${SITE.city}`,
   description: SITE.description,
   generator: 'v0.app',
@@ -23,7 +24,18 @@ export const metadata: Metadata = {
   openGraph: {
     title: `${SITE.name} · Électricien agréé à ${SITE.city}`,
     description: SITE.description,
-    images: ['/hero/hero1.webp'],
+    images: [
+      {
+        url: '/logos/log-perview.jpg',
+        width: 1200,
+        height: 630,
+        alt: `${SITE.name} Logo`,
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/logos/log-perview.jpg'],
   },
 }
 
