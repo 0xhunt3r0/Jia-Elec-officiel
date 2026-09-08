@@ -11,9 +11,9 @@ export function CtaButtons({ className, quoteHref = '/devis' }: { className?: st
   return (
     <div className={cn('flex flex-wrap items-center gap-3', className)}>
       <Button variant="outline" asChild>
-        <a href={SITE.phoneHref} className="min-w-48">
+        <a href={SITE.phoneHref} dir="ltr" className="min-w-48 flex-row [unicode-bidi:isolate]">
           <Image src="/icons/call-w.svg" alt="" width={16} height={16} className="size-4" />
-          {SITE.phoneDisplay}
+          <span>{SITE.phoneDisplay}</span>
         </a>
       </Button>
       <Button asChild>

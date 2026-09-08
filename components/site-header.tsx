@@ -76,10 +76,13 @@ export function SiteHeader() {
             <ThemeToggle />
             <a
               href={SITE.phoneHref}
-              className="hidden items-center gap-2 whitespace-nowrap text-sm font-semibold text-foreground transition-colors duration-300 hover:text-primary xl:inline-flex xl:text-base"
+              dir="ltr"
+              className="hidden items-center gap-2 whitespace-nowrap text-sm font-semibold text-foreground transition-colors duration-300 hover:text-primary xl:inline-flex xl:text-base [unicode-bidi:isolate]"
             >
               <Image src="/icons/green-phone.svg" alt="" width={14} height={14} className="size-3.5 shrink-0" />
-              {SITE.phoneDisplay}
+              <span dir="ltr" className="[unicode-bidi:isolate]">
+                {SITE.phoneDisplay}
+              </span>
             </a>
             <Button asChild className="shrink-0 px-4 py-2.5 text-sm xl:px-5 xl:py-3 xl:text-base">
               <a href="/devis" className="electric-button">
@@ -133,8 +136,11 @@ export function SiteHeader() {
                 </a>
               </Button>
               <Button variant="outline" asChild>
-                <a href={SITE.phoneHref}>
-                  {t.header.call} {SITE.phoneDisplay}
+                <a href={SITE.phoneHref} dir="ltr" className="[unicode-bidi:isolate]">
+                  {t.header.call}{' '}
+                  <span dir="ltr" className="[unicode-bidi:isolate]">
+                    {SITE.phoneDisplay}
+                  </span>
                 </a>
               </Button>
             </div>
@@ -179,7 +185,9 @@ function ServicesMega() {
         </div>
         <div className="mt-6 flex flex-wrap gap-3">
           <Button size="sm" asChild>
-            <a href={SITE.phoneHref}>{SITE.phoneDisplay}</a>
+            <a href={SITE.phoneHref} dir="ltr" className="[unicode-bidi:isolate]">
+              {SITE.phoneDisplay}
+            </a>
           </Button>
           <Button size="sm" variant="dark" asChild>
             <a href="/devis">{t.header.freeQuote}</a>
