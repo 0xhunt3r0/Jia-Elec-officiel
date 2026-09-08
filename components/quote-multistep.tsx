@@ -316,31 +316,17 @@ const renderStep = () => {
             <p className="text-sm text-muted-foreground">
               Ajoutez quelques photos pour nous aider à mieux comprendre votre besoin. <em>(Optionnel)</em>
             </p>
-            <label className="flex cursor-pointer flex-col items-center justify-center gap-2 rounded-md border border-dashed border-input p-8 text-center transition-colors duration-200 hover:border-primary">
+            <label
+              htmlFor="photos"
+              className="flex cursor-pointer flex-col items-center justify-center gap-2 rounded-md border border-dashed border-input p-8 text-center transition-colors duration-200 hover:border-primary"
+            >
               <ImagePlus className="size-8 text-primary" aria-hidden="true" />
               <span className="text-sm font-medium text-foreground">
                 {photos && photos.length > 0 ? `${photos.length} fichier(s) sélectionné(s)` : 'Cliquez pour ajouter des photos'}
               </span>
               <span className="text-xs text-muted-foreground">
-                Images uniquement (JPEG, PNG, WebP, GIF, HEIC), 8 MB max chacune.
+                Images uniquement (JPEG, PNG, WebP, GIF, HEIC), 8 MB max chacune. (Optionnel)
               </span>
-              <input
-                type="file"
-                name="photos"
-                accept="image/jpeg,image/png,image/webp,image/gif,image/heic"
-                multiple
-                className="sr-only"
-                onChange={(e) => {
-                  if (e.target.files && e.target.files.length > 4) {
-                    const dt = new DataTransfer()
-                    Array.from(e.target.files)
-                      .slice(0, 4)
-                      .forEach((f) => dt.items.add(f))
-                    e.target.files = dt.files
-                  }
-                  setPhotos(e.target.files)
-                }}
-              />
             </label>
           </div>
         )
@@ -496,6 +482,28 @@ const renderStep = () => {
       <input type="hidden" name="whatsapp" value={whatsapp} />
       <input type="hidden" name="area" value={area || sector} />
       <input type="hidden" name="consent" value={consent ? 'on' : ''} />
+
+      {/* The file input lives here (always in the DOM) so the selected photos are
+          submitted no matter which step is active when the form sends. Step 2's
+          dropzone is a <label htmlFor="photos"> that opens this input. */}
+      <input
+        type="file"
+        id="photos"
+        name="photos"
+        accept="image/jpeg,image/png,image/webp,image/gif,image/heic"
+        multiple
+        className="sr-only"
+        onChange={(e) => {
+          if (e.target.files && e.target.files.length > 4) {
+            const dt = new DataTransfer()
+            Array.from(e.target.files)
+              .slice(0, 4)
+              .forEach((f) => dt.items.add(f))
+            e.target.files = dt.files
+          }
+          setPhotos(e.target.files)
+        }}
+      />
 
       <AnimatePresence mode="wait">
         <motion.div key={step} variants={contentVariants} initial="hidden" animate="visible" exit="exit">
