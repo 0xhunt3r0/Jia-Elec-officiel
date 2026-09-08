@@ -30,13 +30,23 @@ export function Hero() {
           className={cn('absolute inset-0 transition-opacity duration-700', i === index ? 'opacity-100' : 'opacity-0')}
           aria-hidden={i !== index}
         >
+          {/* Desktop image (≥640px) */}
           <Image
             src={item.image}
             alt=""
             fill
             priority={i === 0}
             sizes="100vw"
-            className="object-cover"
+            className="hidden object-cover sm:block"
+          />
+          {/* Mobile image (<640px) */}
+          <Image
+            src={item.imageMobile}
+            alt=""
+            fill
+            priority={i === 0}
+            sizes="100vw"
+            className="object-cover sm:hidden"
           />
         </div>
       ))}

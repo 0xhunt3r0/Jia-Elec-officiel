@@ -371,7 +371,17 @@
       "duration_seconds": 474,
       "date": "2026-09-08",
       "synced_online": false
+    },
+    {
+      "id": "1788869689517-81bz",
+      "project": "Jia Elec",
+      "display_name": "Jia Elec",
+      "start_time": "2026-09-08T11:49:07.457Z",
+      "end_time": "2026-09-08T12:09:48.284Z",
+      "duration_seconds": 1240,
+      "date": "2026-09-08",
+      "synced_online": false
     }
   ],
-  "last_updated": "2026-09-08T11:48:42.948Z"
+  "last_updated": "2026-09-08T12:14:49.518Z"
 }
