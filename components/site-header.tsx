@@ -54,7 +54,7 @@ export function SiteHeader() {
           )}
         >
           <Logo />
-          <nav className="hidden flex-1 items-center justify-center lg:flex" aria-label={t.primary}>
+          <nav className="hidden min-w-0 flex-1 items-center justify-center overflow-hidden lg:flex" aria-label={t.primary}>
             {t.nav.map((item) =>
               item.to === '/services' ? (
                 <ServicesMega key={item.to} />
@@ -64,14 +64,14 @@ export function SiteHeader() {
                 <Link
                   key={item.to}
                   href={item.to}
-                  className="inline-flex h-full items-center px-3 text-sm font-normal tracking-wide text-foreground uppercase transition-colors duration-300 hover:text-primary xl:px-5 xl:text-base"
+                  className="inline-flex h-full items-center px-2 text-sm font-normal tracking-wide text-foreground uppercase transition-colors duration-300 hover:text-primary xl:px-3 xl:text-base"
                 >
                   {item.label}
                 </Link>
               ),
             )}
           </nav>
-          <div className="hidden items-center gap-5 lg:flex">
+          <div className="hidden shrink-0 items-center gap-3 lg:flex xl:gap-4">
             <LanguageSwitcher align="end" />
             <ThemeToggle />
             <a
@@ -81,7 +81,7 @@ export function SiteHeader() {
               <Image src="/icons/green-phone.svg" alt="" width={14} height={14} className="size-3.5 shrink-0" />
               {SITE.phoneDisplay}
             </a>
-            <Button asChild className="px-5 py-2.5 text-sm xl:px-8 xl:py-3.5 xl:text-base">
+            <Button asChild className="shrink-0 px-4 py-2.5 text-sm xl:px-5 xl:py-3 xl:text-base">
               <a href="/devis" className="electric-button">
                 <span className="led" aria-hidden="true" />
                 {t.header.requestQuote}
