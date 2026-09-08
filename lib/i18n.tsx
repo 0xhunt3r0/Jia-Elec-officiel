@@ -93,11 +93,26 @@ export type SiteText = {
     deadlines: string[]
     paymentMethods: { label: string; description: string }[]
     successTitle: string
+    pageKicker: string
+    pageTitle: string
+    pageDescription: string
     successBody: string
     profileLabel: string
     profileHint: string
     needTitle: string
     needHint: string
+    paymentTitle: string
+    paymentSubtitle: string
+    contactTitle: string
+    contactSubtitle: string
+    propertyLabel: string
+    propertyHint: string
+    propertyTypes: string[]
+    interventionLabel: string
+    interventionHint: string
+    interventions: { label: string; description: string }[]
+    materialsTitle: string
+    materialsOptions: { label: string; description: string }[]
     serviceLabel: string
     servicePlaceholder: string
     sectorLabel: string
@@ -238,11 +253,11 @@ const fr: SiteText = {
     'Éclairage',
     'Tableau électrique',
     'Prises et interrupteurs',
-    'Climatisation / alimentation électrique',
+    'Alimentation électrique',
     'Autre',
   ],
   quoteForm: {
-    steps: ['Profil', 'Votre besoin', 'Détails', 'Coordonnées'],
+    steps: ['Profil', 'Votre besoin', 'Détails', 'Paiement', 'Coordonnées'],
     profiles: ['Particulier', 'Airbnb / Booking', 'Entreprise', 'Commerce', 'Conciergerie', 'Syndic'],
     deadlines: ['Dès que possible', 'Cette semaine', 'Ce mois-ci', 'Planifié'],
     paymentMethods: [
@@ -250,6 +265,9 @@ const fr: SiteText = {
       { label: 'Virement Bancaire', description: 'Un acompte de 20% sera requis avant le déplacement pour valider la commande.' },
     ],
     successTitle: 'Demande envoyée',
+    pageKicker: 'Devis',
+    pageTitle: 'Demander un devis gratuit',
+    pageDescription: '5 étapes rapides. Nous répondons par téléphone, généralement le jour même.',
     successBody: 'Merci ! Nous vous rappelons par téléphone, généralement le jour même.',
     profileLabel: 'Sélectionnez le profil qui vous correspond le mieux.',
     profileHint: 'Cela nous aide à adapter notre réponse.',
@@ -257,6 +275,36 @@ const fr: SiteText = {
     needHint: 'Détaillez le service dont vous avez besoin.',
     serviceLabel: 'Service principal',
     servicePlaceholder: 'Choisissez un service',
+    paymentTitle: 'Précisez vos préférences pour la facturation.',
+    paymentSubtitle: 'Choisissez votre mode de paiement.',
+    propertyLabel: 'Type de bien',
+    propertyHint: 'Cela nous aide à préparer l’intervention adaptée à votre logement ou local.',
+    propertyTypes: ['Appartement', 'Maison', 'Villa', 'Riad', 'Commerce', 'Bureau'],
+    interventionLabel: 'Que recherchez-vous ?',
+    interventionHint: 'Précisez le type d’intervention afin de vous orienter vers notre équipe.',
+    interventions: [
+      {
+        label: 'Installation',
+        description: 'Nouvelle installation électrique : mise aux normes, tableaux, câblage, éclairage, prises, vidéophone…',
+      },
+      {
+        label: 'Réparation / Dépannage',
+        description: 'Panne, court-circuit, disjoncteur qui saute, prise ou interrupteur défectueux, urgence…',
+      },
+    ],
+    materialsTitle: 'Et les matériaux ?',
+    materialsOptions: [
+      {
+        label: 'Je veux aussi un devis matériaux',
+        description: 'Fourniture et pose incluses : câbles, disjoncteurs, prises, tableaux…',
+      },
+      {
+        label: 'Je fournis les matériaux moi-même',
+        description: 'Vous achetez le matériel ; nous ne facturons que l’intervention (main d’œuvre).',
+      },
+    ],
+    contactTitle: 'Vos coordonnées.',
+    contactSubtitle: 'Nous vous rappelons, généralement le jour même.',
     sectorLabel: 'Secteur (Marrakech)',
     sectorPlaceholder: 'Votre secteur',
     addressLabel: 'Adresse, Derb ou Repère',
@@ -395,11 +443,11 @@ const en: SiteText = {
     'Lighting',
     'Switchboard',
     'Sockets and switches',
-    'AC / power supply',
+    'Power supply',
     'Other',
   ],
   quoteForm: {
-    steps: ['Profile', 'Your need', 'Details', 'Contact'],
+    steps: ['Profile', 'Your need', 'Details', 'Payment', 'Contact'],
     profiles: ['Homeowner', 'Airbnb / Booking', 'Company', 'Shop', 'Concierge', 'Property manager'],
     deadlines: ['As soon as possible', 'This week', 'This month', 'Scheduled'],
     paymentMethods: [
@@ -407,6 +455,9 @@ const en: SiteText = {
       { label: 'Bank transfer', description: 'A 20% deposit is required before the visit to confirm the booking.' },
     ],
     successTitle: 'Request sent',
+    pageKicker: 'Quote',
+    pageTitle: 'Request a free quote',
+    pageDescription: '5 quick steps. We answer by phone, usually the same day.',
     successBody: 'Thank you! We will call you back, usually the same day.',
     profileLabel: 'Select the profile that fits you best.',
     profileHint: 'This helps us tailor our answer.',
@@ -414,6 +465,36 @@ const en: SiteText = {
     needHint: 'Describe the service you need.',
     serviceLabel: 'Main service',
     servicePlaceholder: 'Choose a service',
+    paymentTitle: 'Set your billing preferences.',
+    paymentSubtitle: 'Choose your payment method.',
+    propertyLabel: 'Property type',
+    propertyHint: 'This helps us prepare the right work for your home or premises.',
+    propertyTypes: ['Apartment', 'House', 'Villa', 'Riad', 'Shop', 'Office'],
+    interventionLabel: 'What are you looking for?',
+    interventionHint: 'Specify the type of work so we can direct you to the right team.',
+    interventions: [
+      {
+        label: 'Installation',
+        description: 'New electrical installation: compliance, switchboards, wiring, lighting, sockets, video doorbell…',
+      },
+      {
+        label: 'Repair / Breakdown',
+        description: 'Fault, short circuit, tripped breaker, faulty socket or switch, emergency…',
+      },
+    ],
+    materialsTitle: 'What about materials?',
+    materialsOptions: [
+      {
+        label: 'I also want a materials quote',
+        description: 'Supply and installation included: cables, breakers, sockets, switchboards…',
+      },
+      {
+        label: 'I supply the materials myself',
+        description: 'You buy the equipment; we only charge for the job (labour).',
+      },
+    ],
+    contactTitle: 'Your contact details.',
+    contactSubtitle: 'We call you back, usually the same day.',
     sectorLabel: 'Area (Marrakech)',
     sectorPlaceholder: 'Your area',
     addressLabel: 'Address, derb or landmark',
@@ -552,11 +633,11 @@ const ar: SiteText = {
     'إضاءة',
     'لوحة كهربائية',
     'منافذ ومفاتيح',
-    'تكييف / تغذية كهربائية',
+    'تغذية كهربائية',
     'أخرى',
   ],
   quoteForm: {
-    steps: ['الملف الشخصي', 'احتياجك', 'التفاصيل', 'التواصل'],
+    steps: ['الملف الشخصي', 'احتياجك', 'التفاصيل', 'الدفع', 'التواصل'],
     profiles: ['فرد', 'Airbnb / Booking', 'شركة', 'متجر', 'شركة حراسة', 'شركة إدارة عقارات'],
     deadlines: ['في أقرب وقت', 'هذا الأسبوع', 'هذا الشهر', 'مجدول'],
     paymentMethods: [
@@ -564,6 +645,9 @@ const ar: SiteText = {
       { label: 'تحويل بنكي', description: 'يُطلب عربون 20% قبل التنقل لتأكيد الطلب.' },
     ],
     successTitle: 'تم إرسال الطلب',
+    pageKicker: 'عرض سعر',
+    pageTitle: 'اطلب عرض سعر مجاني',
+    pageDescription: '5 خطوات سريعة. نتصل بك هاتفياً، عادة في نفس اليوم.',
     successBody: 'شكراً! سنتصل بك هاتفياً، عادة في نفس اليوم.',
     profileLabel: 'اختر الملف الشخصي الذي يناسبك أفضل.',
     profileHint: 'هذا يساعدنا على تكييف إجابتنا.',
@@ -571,6 +655,36 @@ const ar: SiteText = {
     needHint: 'فصّل الخدمة التي تحتاجها.',
     serviceLabel: 'الخدمة الرئيسية',
     servicePlaceholder: 'اختر خدمة',
+    paymentTitle: 'حدّد تفضيلات الفوترة.',
+    paymentSubtitle: 'اختر طريقة الدفع.',
+    propertyLabel: 'نوع العقار',
+    propertyHint: 'يساعدنا ذلك على تهيئة التدخل المناسب لمنزلك أو محلك.',
+    propertyTypes: ['شقة', 'منزل', 'فيلا', 'رياض', 'محل تجاري', 'مكتب'],
+    interventionLabel: 'ما الذي تبحث عنه؟',
+    interventionHint: 'حدّد نوع التدخل حتى نوجهك إلى الفريق المناسب.',
+    interventions: [
+      {
+        label: 'تركيب',
+        description: 'تركيب كهربائي جديد: مطابقة المعايير، اللوحات، التمديدات، الإضاءة، المنافذ، جرس الفيديو…',
+      },
+      {
+        label: 'إصلاح / صيانة',
+        description: 'عطل، تماس كهربائي، قاطع يفصل باستمرار، منفذ أو مفتاح معطوب، حالة طارئة…',
+      },
+    ],
+    materialsTitle: 'وماذا عن المواد؟',
+    materialsOptions: [
+      {
+        label: 'أريد أيضاً عرض سعر للمواد',
+        description: 'التوريد والتركيب مشمولان: الأسلاك، القواطع، المنافذ، اللوحات…',
+      },
+      {
+        label: 'أوفر المواد بنفسي',
+        description: 'تشتري أنت المواد؛ ولا نتقاضى إلا ثمن التدخل (الأجرة).',
+      },
+    ],
+    contactTitle: 'بيانات التواصل.',
+    contactSubtitle: 'نتصل بك مرة أخرى، عادة في نفس اليوم.',
     sectorLabel: 'الحي (مراكش)',
     sectorPlaceholder: 'حيك',
     addressLabel: 'العنوان أو معلم قريب',

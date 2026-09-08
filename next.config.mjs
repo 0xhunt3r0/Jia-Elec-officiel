@@ -6,6 +6,10 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  serverActions: {
+    // Photos can each be up to 8 MB (×4), well above the 1 MB default body limit.
+    bodySizeLimit: '35mb',
+  },
   async headers() {
     return [
       {

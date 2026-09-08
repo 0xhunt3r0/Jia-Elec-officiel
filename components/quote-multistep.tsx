@@ -5,6 +5,15 @@ import { useActionState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   Building2,
+  Banknote,
+  Briefcase,
+  ConciergeBell,
+  KeyRound,
+  Package,
+  ShieldCheck,
+  ShoppingCart,
+  User,
+  Users,
   Check,
   CheckCircle2,
   ChevronLeft,
@@ -37,12 +46,16 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { AREAS, SITE } from '@/lib/site'
-import { interp, useLanguage } from '@/lib/i18n'
+import { dict, interp, useLanguage } from '@/lib/i18n'
 
 import { cn } from '@/lib/utils'
 
-const PROFILE_ICONS = [Home, Hotel, Building2, Store, Landmark, Building2]
+const PROFILE_ICONS = [User, KeyRound, Users, ShoppingCart, ConciergeBell, ShieldCheck]
 const SERVICE_ICONS = [PlugZap, Wrench, Hammer, Lightbulb, LayoutGrid, Power, Snowflake, MoreHorizontal]
+const PAYMENT_ICONS = [Banknote, Landmark]
+const INTERVENTION_ICONS = [PlugZap, Wrench]
+const MATERIALS_ICONS = [Package, Hammer]
+const PROPERTY_ICONS = [Building2, Home, Hotel, Landmark, Store, Briefcase]
 
 const contentVariants = {
   hidden: { opacity: 0, x: 40 },
@@ -51,7 +64,7 @@ const contentVariants = {
 }
 
 const initial: QuoteState = { status: 'idle' }
-export function QuoteMultistep({ compact = false }: { compact?: boolean }) {
+export function QuoteMultistep() {
   const { t, lang } = useLanguage()
   const q = t.quoteForm
   const STEPS = q.steps
@@ -69,6 +82,9 @@ export function QuoteMultistep({ compact = false }: { compact?: boolean }) {
   const [step, setStep] = useState(0)
 
   const [profile, setProfile] = useState('')
+  const [intervention, setIntervention] = useState('')
+  const [materials, setMaterials] = useState('')
+  const [propertyType, setPropertyType] = useState('')
   const [service, setService] = useState('')
   const [sector, setSector] = useState('')
   const [address, setAddress] = useState('')
@@ -79,6 +95,7 @@ export function QuoteMultistep({ compact = false }: { compact?: boolean }) {
   const [photos, setPhotos] = useState<FileList | null>(null)
   const [payment, setPayment] = useState('')
   const [name, setName] = useState('')
+  const [firstname, setFirstname] = useState('')
   const [phone, setPhone] = useState('')
   const [whatsapp, setWhatsapp] = useState('')
   const [email, setEmail] = useState('')
@@ -88,7 +105,7 @@ export function QuoteMultistep({ compact = false }: { compact?: boolean }) {
   const isStepValid = () => {
     switch (step) {
       case 0:
-        return profile !== ''
+        return profile !== '' && propertyType !== '' && intervention !== '' && materials !== ''
       case 1:
         return service !== '' && sector !== '' && address.trim().length >= 5
       case 2:
@@ -96,7 +113,7 @@ export function QuoteMultistep({ compact = false }: { compact?: boolean }) {
       case 3:
         return payment !== ''
       case 4:
-        return name.trim().length >= 2 && phone.trim().length >= 6 && area !== '' && consent
+        return name.trim().length >= 2 && phone.trim().length >= 6 && whatsapp.trim().length >= 6 && (area || sector) !== '' && consent
       default:
         return true
     }
@@ -141,16 +158,102 @@ const renderStep = () => {
                   <label
                     key={p.label}
                     className={cn(
-                      'flex cursor-pointer items-center gap-3 rounded-md border border-input bg-background/40 p-4 transition-colors duration-200 hover:border-primary/50',
-                      profile === p.label && 'border-primary bg-primary/5',
+                      'flex cursor-pointer items-center gap-3 rounded-md border p-4 transition-colors duration-200',
+                      profile === p.label
+                        ? 'border-primary bg-primary text-primary-foreground'
+                        : 'border-input bg-background/40 hover:border-primary/50',
                     )}
                   >
                     <input type="radio" name="profile" className="sr-only" checked={profile === p.label} onChange={() => setProfile(p.label)} />
-                    <p.icon className="size-5 shrink-0 text-primary" aria-hidden="true" />
-                    <span className="flex-1 text-sm font-medium text-foreground">{p.label}</span>
-                    {profile === p.label ? <Check className="size-4 text-primary" aria-hidden="true" /> : null}
+                    <p.icon className={cn('size-5 shrink-0', profile === p.label ? 'text-primary-foreground' : 'text-primary')} aria-hidden="true" />
+                    <span className="flex-1 text-sm font-medium">{p.label}</span>
+                    {profile === p.label ? <Check className="size-4" aria-hidden="true" /> : null}
                   </label>
                 ))}
+              </div>
+            </div>
+            <div>
+              <Label>{q.propertyLabel}</Label>
+              <p className="mt-1 text-sm text-muted-foreground">
+                {q.propertyHint}
+              </p>
+              <div className="mt-3 grid gap-2.5 sm:grid-cols-2 lg:grid-cols-3">
+                {q.propertyTypes.map((label, i) => {
+                  const Icon = PROPERTY_ICONS[i] ?? Building2
+                  return (
+                    <label
+                      key={label}
+                      className={cn(
+                        'flex cursor-pointer items-center gap-3 rounded-md border p-4 transition-colors duration-200',
+                        propertyType === label
+                          ? 'border-primary bg-primary text-primary-foreground'
+                          : 'border-input bg-background/40 hover:border-primary/50',
+                      )}
+                    >
+                      <input type="radio" name="propertyType" className="sr-only" checked={propertyType === label} onChange={() => setPropertyType(label)} />
+                      <Icon className={cn('size-5 shrink-0', propertyType === label ? 'text-primary-foreground' : 'text-primary')} aria-hidden="true" />
+                      <span className="flex-1 text-sm font-medium">{label}</span>
+                      {propertyType === label ? <Check className="size-4" aria-hidden="true" /> : null}
+                    </label>
+                  )
+                })}
+              </div>
+            </div>
+            <div>
+              <Label>{q.interventionLabel}</Label>
+              <p className="mt-1 text-sm text-muted-foreground">
+                {q.interventionHint}
+              </p>
+              <div className="mt-3 grid gap-2.5 sm:grid-cols-2">
+                {q.interventions.map((item, i) => {
+                  const Icon = INTERVENTION_ICONS[i] ?? PlugZap
+                  return (
+                    <label
+                      key={item.label}
+                      className={cn(
+                        'flex cursor-pointer items-start gap-3 rounded-md border p-4 transition-colors duration-200',
+                        intervention === item.label
+                          ? 'border-primary bg-primary text-primary-foreground'
+                          : 'border-input bg-background/40 hover:border-primary/50',
+                      )}
+                    >
+                      <input type="radio" name="intervention" className="sr-only" checked={intervention === item.label} onChange={() => setIntervention(item.label)} />
+                      <Icon className={cn('size-5 shrink-0', intervention === item.label ? 'text-primary-foreground' : 'text-primary')} aria-hidden="true" />
+                      <span className="flex-1">
+                        <span className={cn('block text-sm font-medium', intervention !== item.label && 'text-foreground')}>{item.label}</span>
+                        <span className={cn('mt-1 block text-sm', intervention === item.label ? 'text-primary-foreground/80' : 'text-muted-foreground')}>{item.description}</span>
+                      </span>
+                      {intervention === item.label ? <Check className="size-4 shrink-0" aria-hidden="true" /> : null}
+                    </label>
+                  )
+                })}
+              </div>
+            </div>
+            <div>
+              <Label>{q.materialsTitle}</Label>
+              <div className="mt-3 grid gap-2.5 sm:grid-cols-2">
+                {q.materialsOptions.map((item, i) => {
+                  const Icon = MATERIALS_ICONS[i] ?? Package
+                  return (
+                    <label
+                      key={item.label}
+                      className={cn(
+                        'flex cursor-pointer items-start gap-3 rounded-md border p-4 transition-colors duration-200',
+                        materials === item.label
+                          ? 'border-primary bg-primary text-primary-foreground'
+                          : 'border-input bg-background/40 hover:border-primary/50',
+                      )}
+                    >
+                      <input type="radio" name="materials" className="sr-only" checked={materials === item.label} onChange={() => setMaterials(item.label)} />
+                      <Icon className={cn('size-5 shrink-0', materials === item.label ? 'text-primary-foreground' : 'text-primary')} aria-hidden="true" />
+                      <span className="flex-1">
+                        <span className={cn('block text-sm font-medium', materials !== item.label && 'text-foreground')}>{item.label}</span>
+                        <span className={cn('mt-1 block text-sm', materials === item.label ? 'text-primary-foreground/80' : 'text-muted-foreground')}>{item.description}</span>
+                      </span>
+                      {materials === item.label ? <Check className="size-4 shrink-0" aria-hidden="true" /> : null}
+                    </label>
+                  )
+                })}
               </div>
             </div>
           </div>
@@ -209,9 +312,9 @@ const renderStep = () => {
       case 2:
         return (
           <div className="space-y-4">
-            <Label>Photos du projet (max 2)</Label>
+            <Label>Photos du projet (max 4)</Label>
             <p className="text-sm text-muted-foreground">
-              Ajoutez quelques photos pour nous aider à mieux comprendre votre besoin. <em>(Facultatif)</em>
+              Ajoutez quelques photos pour nous aider à mieux comprendre votre besoin. <em>(Optionnel)</em>
             </p>
             <label className="flex cursor-pointer flex-col items-center justify-center gap-2 rounded-md border border-dashed border-input p-8 text-center transition-colors duration-200 hover:border-primary">
               <ImagePlus className="size-8 text-primary" aria-hidden="true" />
@@ -228,10 +331,11 @@ const renderStep = () => {
                 multiple
                 className="sr-only"
                 onChange={(e) => {
-                  if (e.target.files && e.target.files.length > 2) {
+                  if (e.target.files && e.target.files.length > 4) {
                     const dt = new DataTransfer()
-                    dt.items.add(e.target.files[0])
-                    dt.items.add(e.target.files[1])
+                    Array.from(e.target.files)
+                      .slice(0, 4)
+                      .forEach((f) => dt.items.add(f))
                     e.target.files = dt.files
                   }
                   setPhotos(e.target.files)
@@ -244,32 +348,83 @@ const renderStep = () => {
         return (
           <div className="space-y-6">
             <div>
-              <h3 className="text-base font-medium text-foreground">Précisez vos préférences pour la facturation.</h3>
-              <p className="mt-1 text-sm text-muted-foreground">Choisissez votre mode de paiement.</p>
+              <h3 className="text-base font-medium text-foreground">{q.paymentTitle}</h3>
+              <p className="mt-1 text-sm text-muted-foreground">{q.paymentSubtitle}</p>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {PAYMENT_METHODS.map((method, i) => {
+                const Icon = PAYMENT_ICONS[i] ?? Banknote
+                return (
+                  <button
+                    key={method.label}
+                    type="button"
+                    onClick={() => setPayment(method.label)}
+                    aria-pressed={payment === method.label}
+                    className={cn(
+                      'flex items-start gap-3 rounded-xs border p-4 text-left transition-colors duration-200',
+                      payment === method.label
+                        ? 'border-primary bg-primary text-primary-foreground'
+                        : 'border-hairline hover:border-primary',
+                    )}
+                  >
+                    <span
+                      className={cn(
+                        'mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full border',
+                        payment === method.label ? 'border-primary-foreground bg-primary text-primary-foreground' : 'border-input',
+                      )}
+                    >
+                      {payment === method.label ? <Check className="size-3" aria-hidden="true" /> : null}
+                    </span>
+                    <span className="min-w-0 flex-1">
+                      <span className="flex items-center gap-2">
+                        <Icon
+                          className={cn('size-5 shrink-0', payment === method.label ? 'text-primary-foreground' : 'text-muted-foreground')}
+                          aria-hidden="true"
+                        />
+                        <span className={cn('block font-medium', payment !== method.label && 'text-foreground')}>
+                          {method.label}
+                        </span>
+                      </span>
+                      <span className={cn('mt-1 block text-sm', payment === method.label ? 'text-primary-foreground/80' : 'text-muted-foreground')}>
+                        {method.description}
+                      </span>
+                    </span>
+                  </button>
+                )
+              })}
+            </div>
+          </div>
+        )
+      case 4:
+        return (
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-base font-medium text-foreground">{q.contactTitle}</h3>
+              <p className="mt-1 text-sm text-muted-foreground">{q.contactSubtitle}</p>
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="space-y-2">
-                <Label htmlFor="whatsapp">WhatsApp</Label>
-                <Input id="whatsapp" name="whatsapp" type="tel" value={whatsapp} onChange={(e) => setWhatsapp(e.target.value)} placeholder="+212 6 ··· (facultatif)" autoComplete="tel" />
+                <Label htmlFor="name">Nom</Label>
+                <Input id="name" name="name" value={name} onChange={(e) => setName(e.target.value)} placeholder="Votre nom" autoComplete="family-name" />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="email">Email <span className="text-muted-foreground">(facultatif)</span></Label>
-                <Input id="email" name="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="vous@exemple.com" autoComplete="email" />
+                <Label htmlFor="firstname">Prénom</Label>
+                <Input id="firstname" name="firstname" value={firstname} onChange={(e) => setFirstname(e.target.value)} placeholder="Votre prénom" autoComplete="given-name" />
+              </div>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="space-y-2">
+                <Label htmlFor="phone">Téléphone</Label>
+                <Input id="phone" name="phone" type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="+212 6 ···" autoComplete="tel" />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="whatsapp">WhatsApp</Label>
+                <Input id="whatsapp" name="whatsapp" type="tel" required value={whatsapp} onChange={(e) => setWhatsapp(e.target.value)} placeholder="+212 6 ···" autoComplete="tel" />
               </div>
             </div>
             <div className="space-y-2">
-              <Label>Ville / quartier</Label>
-              <Select value={area} onValueChange={setArea}>
-                <SelectTrigger className="w-full">
-                  <SelectValue placeholder="Marrakech, Guéliz…" />
-                </SelectTrigger>
-                <SelectContent>
-                  {AREAS.map((a) => (
-                    <SelectItem key={a.name} value={a.name}>{a.name}</SelectItem>
-                  ))}
-                  <SelectItem value="Other">Autre / non listé</SelectItem>
-                </SelectContent>
-              </Select>
+              <Label htmlFor="email">Email <span className="text-muted-foreground">(optionnel)</span></Label>
+              <Input id="email" name="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="vous@exemple.com" autoComplete="email" />
             </div>
             <label className="flex cursor-pointer items-start gap-3">
               <Checkbox checked={consent} onCheckedChange={(v) => setConsent(v === true)} className="mt-0.5" />
@@ -284,15 +439,6 @@ const renderStep = () => {
 
   return (
     <form action={action} className="rounded-md border border-border bg-elevated p-6 sm:p-8">
-      {!compact ? (
-        <div className="mb-6">
-          <h3 className="text-lg font-medium text-foreground uppercase">Demander un devis gratuit</h3>
-          <p className="mt-1 text-sm text-muted-foreground">
-            4 étapes rapides. Nous répondons par téléphone, généralement le jour même.
-          </p>
-        </div>
-      ) : null}
-
       {/* Progress indicator */}
       <div className="mb-8">
         <div className="flex justify-between">
@@ -336,7 +482,10 @@ const renderStep = () => {
 
       {/* Hidden fields so every step's values submit with the form */}
       <input type="hidden" name="profile" value={profile} />
-      <input type="hidden" name="workType" value={service} />
+      <input type="hidden" name="intervention" value={intervention} />
+      <input type="hidden" name="materials" value={materials} />
+      <input type="hidden" name="propertyType" value={propertyType} />
+      <input type="hidden" name="job" value={service ? (t.jobTypes.indexOf(service) >= 0 ? dict.fr.jobTypes[t.jobTypes.indexOf(service)] : service) : ''} />
       <input type="hidden" name="sector" value={sector} />
       <input type="hidden" name="address" value={address} />
       <input type="hidden" name="message" value={description} />
@@ -345,7 +494,7 @@ const renderStep = () => {
       <input type="hidden" name="instructions" value={instructions} />
       <input type="hidden" name="payment" value={payment} />
       <input type="hidden" name="whatsapp" value={whatsapp} />
-      <input type="hidden" name="area" value={area} />
+      <input type="hidden" name="area" value={area || sector} />
       <input type="hidden" name="consent" value={consent ? 'on' : ''} />
 
       <AnimatePresence mode="wait">

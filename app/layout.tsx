@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   description: SITE.description,
   generator: 'v0.app',
   icons: {
-    icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
+    icon: [{ url: '/icons/favicon.svg?v=2', type: 'image/svg+xml' }],
   },
   openGraph: {
     title: `${SITE.name} · Électricien agréé à ${SITE.city}`,

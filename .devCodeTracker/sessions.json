@@ -321,7 +321,47 @@
       "duration_seconds": 167,
       "date": "2026-09-08",
       "synced_online": false
+    },
+    {
+      "id": "1788823253549-7cth",
+      "project": "Jia Elec",
+      "display_name": "Jia Elec",
+      "start_time": "2026-09-07T23:16:03.945Z",
+      "end_time": "2026-09-07T23:20:52.868Z",
+      "duration_seconds": 288,
+      "date": "2026-09-08",
+      "synced_online": false
+    },
+    {
+      "id": "1788857854913-5idz",
+      "project": "Jia Elec",
+      "display_name": "Jia Elec",
+      "start_time": "2026-09-08T08:49:58.708Z",
+      "end_time": "2026-09-08T08:52:21.241Z",
+      "duration_seconds": 142,
+      "date": "2026-09-08",
+      "synced_online": false
+    },
+    {
+      "id": "1788865915567-6u2t",
+      "project": "Jia Elec",
+      "display_name": "Jia Elec",
+      "start_time": "2026-09-08T09:02:30.190Z",
+      "end_time": "2026-09-08T11:06:54.660Z",
+      "duration_seconds": 7464,
+      "date": "2026-09-08",
+      "synced_online": false
+    },
+    {
+      "id": "1788867628754-7dm1",
+      "project": "Jia Elec",
+      "display_name": "Jia Elec",
+      "start_time": "2026-09-08T11:20:35.793Z",
+      "end_time": "2026-09-08T11:40:27.772Z",
+      "duration_seconds": 1191,
+      "date": "2026-09-08",
+      "synced_online": false
     }
   ],
-  "last_updated": "2026-09-07T23:16:02.283Z"
+  "last_updated": "2026-09-08T11:40:28.755Z"
 }

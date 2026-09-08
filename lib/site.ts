@@ -308,6 +308,9 @@ export const AREAS = [
   { name: "Chrifia", blurb: "Villas, maisons et résidences au sud de la ville.", image: "/gallery/gallery-4.webp", lat: 31.578, lng: -8.012 },
 ];
 
+// Sort areas A→Z so dropdowns (Secteur, Ville/quartier) and grids list them alphabetically
+AREAS.sort((a, b) => a.name.localeCompare(b.name, "fr", { sensitivity: "base" }));
+
 /** Exact ordered list of areas shown in the homepage preview. The rest appear on /areas. */
 export const HOME_AREAS = [
   "Guéliz",
@@ -434,13 +437,13 @@ export const FAQS = [
 ];
 
 export const JOB_TYPES = [
-  "Installation",
+  "Installation électrique",
   "Réparation / panne",
-  "Mise à niveau de tableau",
+  "Rénovation électrique",
   "Éclairage",
-  "Éclairage extérieur",
-  "Sécurité / caméras",
-  "Urgence",
+  "Tableau électrique",
+  "Prises et interrupteurs",
+  "Alimentation électrique",
   "Autre",
 ] as const;
 

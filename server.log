@@ -1,0 +1,18 @@
+
+> my-project@0.1.0 start
+> next start
+
+▲ Next.js 16.3.3
+- Local:         http://localhost:3000
+- Network:       http://172.21.240.1:3000
+✓ Ready in 283ms
+✓ Running next.config.mjs took 40ms
+[quote-request] {
+  name: 'jguu',
+  phone: '0660630774',
+  area: 'Amelkis',
+  job: 'Réparation / panne',
+  message: 'sfe sfe e',
+  at: '2026-09-08T11:34:43.366Z'
+}
+^C^C
