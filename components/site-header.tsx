@@ -76,9 +76,9 @@ export function SiteHeader() {
             <ThemeToggle />
             <a
               href={SITE.phoneHref}
-              className="hidden items-center gap-2 text-sm font-semibold text-foreground transition-colors duration-300 hover:text-primary xl:inline-flex xl:text-base"
+              className="hidden items-center gap-2 whitespace-nowrap text-sm font-semibold text-foreground transition-colors duration-300 hover:text-primary xl:inline-flex xl:text-base"
             >
-              <Image src="/icons/green-phone.svg" alt="" width={14} height={14} className="size-3.5" />
+              <Image src="/icons/green-phone.svg" alt="" width={14} height={14} className="size-3.5 shrink-0" />
               {SITE.phoneDisplay}
             </a>
             <Button asChild className="px-5 py-2.5 text-sm xl:px-8 xl:py-3.5 xl:text-base">
