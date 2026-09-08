@@ -77,7 +77,7 @@ export function SiteHeader() {
             <a
               href={SITE.phoneHref}
               dir="ltr"
-              className="hidden items-center gap-2 whitespace-nowrap text-sm font-semibold text-foreground transition-colors duration-300 hover:text-primary xl:inline-flex xl:text-base [unicode-bidi:isolate]"
+              className="hidden items-center gap-2 whitespace-nowrap text-sm font-semibold text-foreground transition-colors duration-300 hover:text-primary lg:inline-flex xl:text-base [unicode-bidi:isolate]"
             >
               <Image src="/icons/green-phone.svg" alt="" width={14} height={14} className="size-3.5 shrink-0" />
               <span dir="ltr" className="[unicode-bidi:isolate]">
