@@ -14,10 +14,13 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://jia-elec-officiel-ten.vercel.app'),
+  metadataBase: new URL('https://jiaelec.ma'),
   title: `${SITE.name} · Électricien agréé à ${SITE.city}`,
   description: SITE.description,
   generator: 'v0.app',
+  verification: {
+    google: 'mDy_9f8EF5Kl_HMU6Aj0Qye4ArNz9Ivoo-O-1cxw9lY',
+  },
   icons: {
     icon: [{ url: '/icons/favicon.svg?v=2', type: 'image/svg+xml' }],
   },
